@@ -5,11 +5,13 @@ class RoundedButton extends StatelessWidget {
   final String text;
   final double heightFactor;
   final double widthFactor;
+  final VoidCallback buttonPressed;
   const RoundedButton({
     super.key,
     required this.text,
     required this.heightFactor,
     required this.widthFactor,
+    required this.buttonPressed,
   });
 
   @override
@@ -21,11 +23,8 @@ class RoundedButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: kPrimaryColor,
           onPrimary: Colors.white,
-          // padding: EdgeInsets.symmetric(
-          //     horizontal: MediaQuery.sizeOf(context).width * .3,
-          //     vertical: 0)
         ),
-        onPressed: () {},
+        onPressed: buttonPressed,
         child: Text(
           text,
           style: TextStyle(
