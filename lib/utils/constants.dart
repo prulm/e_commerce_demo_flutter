@@ -1,2 +1,5 @@
+import 'package:flutter/material.dart';
+
 var kLandingImage =
-    'https://img.freepik.com/premium-vector/young-woman-goes-with-paper-bags-from-online-shopping_186332-99.jpg?w=740';
+    'https://cdn3.iconfinder.com/data/icons/online-shopping-01/3000/OS01-01-256.png';
+var kPrimaryColor = Colors.deepPurple;

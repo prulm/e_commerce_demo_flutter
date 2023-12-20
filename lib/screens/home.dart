@@ -1,3 +1,5 @@
+import 'package:e_commerce_demo_flutter/utils/constants.dart';
+import 'package:e_commerce_demo_flutter/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -24,6 +26,9 @@ class _HomeState extends State<Home> {
                 child: Text('Skip'),
               ),
             ),
+            Image.network(kLandingImage),
+            const RoundedButton(text: 'Log In', heightFactor: .07, widthFactor: .8),
+            const RoundedButton(text: 'Sign Up', heightFactor: .07, widthFactor: .8),
           ],
         ),
       ),
