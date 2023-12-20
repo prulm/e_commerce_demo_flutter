@@ -1,5 +1,5 @@
 import 'package:e_commerce_demo_flutter/models/user.dart';
-import 'package:e_commerce_demo_flutter/services/api_methods/login.dart';
+import 'package:e_commerce_demo_flutter/services/api_methods/login_method.dart';
 
 class ApiService {
   final String baseUrl;
