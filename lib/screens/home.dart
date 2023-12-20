@@ -1,5 +1,6 @@
 import 'package:e_commerce_demo_flutter/screens/login.dart';
 import 'package:e_commerce_demo_flutter/screens/signup.dart';
+import 'package:e_commerce_demo_flutter/utils/constants.dart';
 import 'package:e_commerce_demo_flutter/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 
@@ -32,6 +33,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kGrey,
       body: Padding(
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.sizeOf(context).width * .1,
