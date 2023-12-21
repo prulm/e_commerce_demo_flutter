@@ -1,3 +1,4 @@
+import 'package:e_commerce_demo_flutter/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -11,32 +12,32 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.sizeOf(context).width * .1,
-                vertical: MediaQuery.sizeOf(context).height * .01),
-            child: Column(
-              children: [
-                Container(
-                  alignment: Alignment.centerRight,
-                  child: OutlinedButton(
-                    onPressed: () {},
-                    child: Text('Skip'),
+      backgroundColor: kGrey,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.sizeOf(context).width * .1,
+              vertical: MediaQuery.sizeOf(context).height * .05),
+          child: Column(
+            children: [
+              Container(
+                alignment: Alignment.centerRight,
+                child: OutlinedButton(
+                  onPressed: () {},
+                  child: const Text('Skip'),
+                ),
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  'Login',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Login',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ))
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

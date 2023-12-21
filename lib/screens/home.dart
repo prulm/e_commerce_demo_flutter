@@ -57,13 +57,13 @@ class _HomeState extends State<Home> {
                   RoundedButton(
                     text: 'Log In',
                     heightFactor: .07,
-                    widthFactor: .8,
+                    widthFactor: .9,
                     buttonPressed: () => buttonPressed(context, 'Login'),
                   ),
                   RoundedButton(
                     text: 'Sign Up',
                     heightFactor: .07,
-                    widthFactor: .8,
+                    widthFactor: .9,
                     buttonPressed: () => buttonPressed(context, 'Signup'),
                   ),
                 ],
