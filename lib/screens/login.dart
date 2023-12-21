@@ -1,5 +1,6 @@
 import 'package:e_commerce_demo_flutter/utils/constants.dart';
 import 'package:e_commerce_demo_flutter/widgets/rounded_input.dart';
+import 'package:e_commerce_demo_flutter/widgets/traingle_button.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -56,13 +57,60 @@ class _LoginState extends State<Login> {
                 label: "Password",
                 inputController: passwordController,
                 iconSuffix: textObsecured
-                    ? IconButton(
-                        onPressed: iconPressed,
-                        icon: const Icon(Icons.visibility))
-                    : IconButton(
-                        onPressed: iconPressed,
-                        icon: const Icon(Icons.visibility_off)),
+                    ? Container(
+                        padding: EdgeInsets.only(
+                          right: MediaQuery.sizeOf(context).width * .03,
+                        ),
+                        child: IconButton(
+                            onPressed: iconPressed,
+                            icon: const Icon(Icons.visibility)),
+                      )
+                    : Container(
+                        padding: EdgeInsets.only(
+                          right: MediaQuery.sizeOf(context).width * .03,
+                        ),
+                        child: IconButton(
+                            onPressed: iconPressed,
+                            icon: const Icon(Icons.visibility_off)),
+                      ),
                 textObsecured: textObsecured,
+              ),
+              Container(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  child: Text(
+                    'Forgot your password?',
+                    style: TextStyle(
+                      color: kGrey600,
+                    ),
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+              Container(
+                alignment: Alignment.centerRight,
+                child: const TraingleButton(),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Don't have an account?"),
+                  TextButton(
+                    child: const Text("Sign Up"),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  const Expanded(child: Divider()),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Text('OR',
+                    style: TextStyle(color: kGrey600),),
+                  ),
+                  const Expanded(child: Divider(),),
+                ],
               ),
             ],
           ),

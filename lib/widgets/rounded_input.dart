@@ -25,8 +25,8 @@ class RoundedInput extends StatelessWidget {
             color: Colors.grey,
             backgroundColor: Colors.white,
           ),
-          contentPadding:
-              EdgeInsets.only(left: MediaQuery.sizeOf(context).width * .07),
+          contentPadding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.sizeOf(context).width * .07),
           labelText: label,
           filled: true,
           fillColor: Colors.white,
