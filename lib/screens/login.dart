@@ -1,6 +1,6 @@
 import 'package:e_commerce_demo_flutter/utils/constants.dart';
 import 'package:e_commerce_demo_flutter/widgets/rounded_input.dart';
-import 'package:e_commerce_demo_flutter/widgets/traingle_button.dart';
+import 'package:e_commerce_demo_flutter/widgets/traingle_button_alternative.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -14,6 +14,12 @@ class _LoginState extends State<Login> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool textObsecured = true;
+  List<Map> icons = [
+    {"name": "facebook", "url": kFbLink},
+    {"name": "google", "url": kGoogleLink},
+    {"name": "instagram", "url": kInstaLink},
+    {"name": "twitter", "url": kXLink}
+  ];
   void iconPressed() {
     textObsecured = !textObsecured;
     setState(() {});
@@ -37,6 +43,7 @@ class _LoginState extends State<Login> {
                   child: const Text('Skip'),
                 ),
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .03),
               Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -47,12 +54,14 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .05),
               RoundedInput(
                 label: "Email/Phone number",
                 inputController: emailController,
                 iconSuffix: null,
                 textObsecured: false,
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .05),
               RoundedInput(
                 label: "Password",
                 inputController: passwordController,
@@ -75,6 +84,7 @@ class _LoginState extends State<Login> {
                       ),
                 textObsecured: textObsecured,
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .005),
               Container(
                 alignment: Alignment.centerRight,
                 child: TextButton(
@@ -87,10 +97,12 @@ class _LoginState extends State<Login> {
                   onPressed: () {},
                 ),
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .06),
               Container(
                 alignment: Alignment.centerRight,
                 child: const TraingleButton(),
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .06),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -101,16 +113,40 @@ class _LoginState extends State<Login> {
                   ),
                 ],
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .05),
               Row(
                 children: [
                   const Expanded(child: Divider()),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text('OR',
-                    style: TextStyle(color: kGrey600),),
+                    child: Text(
+                      'OR',
+                      style: TextStyle(color: kGrey600),
+                    ),
                   ),
-                  const Expanded(child: Divider(),),
+                  const Expanded(child: Divider()),
                 ],
+              ),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .05),
+              SizedBox(
+                height: MediaQuery.sizeOf(context).width * .4,
+                child: GridView.builder(
+                  itemCount: icons.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: icons.length),
+                  itemBuilder: (context, index) {
+                    return Container(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.sizeOf(context).width * .06),
+                      child: CircleAvatar(
+                        child: Image.network(
+                          icons[index]["url"],
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    );
+                  },
+                ),
               ),
             ],
           ),

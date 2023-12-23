@@ -5,3 +5,7 @@ var kLandingImage =
 var kPrimaryColor = Colors.deepPurple;
 var kGrey = Colors.grey[100];
 var kGrey600 = Colors.grey[600];
+var kFbLink = "https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_facebook-512.png";
+var kGoogleLink = "https://cdn3.iconfinder.com/data/icons/logos-brands-3/24/logo_brand_brands_logos_google-512.png";
+var kInstaLink = "https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_instagram-512.png";
+var kXLink = "https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_twitter-512.png";
