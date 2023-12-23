@@ -1,3 +1,4 @@
+import 'package:e_commerce_demo_flutter/screens/signup.dart';
 import 'package:e_commerce_demo_flutter/utils/constants.dart';
 import 'package:e_commerce_demo_flutter/widgets/rounded_input.dart';
 import 'package:e_commerce_demo_flutter/widgets/traingle_button_alternative.dart';
@@ -37,6 +38,7 @@ class _LoginState extends State<Login> {
           child: Column(
             children: [
               Container(
+                height: MediaQuery.sizeOf(context).height * .05,
                 alignment: Alignment.centerRight,
                 child: OutlinedButton(
                   onPressed: () {},
@@ -49,12 +51,12 @@ class _LoginState extends State<Login> {
                 child: Text(
                   'Login',
                   style: TextStyle(
-                    fontSize: MediaQuery.sizeOf(context).width * .05,
+                    fontSize: MediaQuery.sizeOf(context).width * .06,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).width * .05),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .04),
               RoundedInput(
                 label: "Email/Phone number",
                 inputController: emailController,
@@ -109,7 +111,14 @@ class _LoginState extends State<Login> {
                   const Text("Don't have an account?"),
                   TextButton(
                     child: const Text("Sign Up"),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignUp(),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),

@@ -1,7 +1,9 @@
+import 'package:e_commerce_demo_flutter/screens/login.dart';
 import 'package:e_commerce_demo_flutter/utils/constants.dart';
 import 'package:e_commerce_demo_flutter/widgets/rounded_input.dart';
 import 'package:e_commerce_demo_flutter/widgets/traingle_button_alternative.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -12,6 +14,9 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController fNameController = TextEditingController();
+  final TextEditingController lNameController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool textObsecured = true;
   bool agreed = false;
@@ -24,6 +29,7 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kGrey,
+      resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -32,6 +38,7 @@ class _SignUpState extends State<SignUp> {
           child: Column(
             children: [
               Container(
+                height: MediaQuery.sizeOf(context).height * .05,
                 alignment: Alignment.centerRight,
                 child: OutlinedButton(
                   onPressed: () {},
@@ -49,17 +56,17 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).width * .04),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .02),
               RoundedInput(
                 label: "First name",
-                inputController: emailController,
+                inputController: fNameController,
                 iconSuffix: null,
                 textObsecured: false,
               ),
               SizedBox(height: MediaQuery.sizeOf(context).width * .04),
               RoundedInput(
                 label: "Last name",
-                inputController: emailController,
+                inputController: lNameController,
                 iconSuffix: null,
                 textObsecured: false,
               ),
@@ -73,7 +80,7 @@ class _SignUpState extends State<SignUp> {
               SizedBox(height: MediaQuery.sizeOf(context).width * .04),
               RoundedInput(
                 label: "Phone number",
-                inputController: emailController,
+                inputController: phoneController,
                 iconSuffix: null,
                 textObsecured: false,
               ),
@@ -100,7 +107,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                 textObsecured: textObsecured,
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).width * .03),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .02),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -125,7 +132,7 @@ class _SignUpState extends State<SignUp> {
               Container(
                 alignment: Alignment.centerRight,
                 padding: EdgeInsets.symmetric(
-                    vertical: MediaQuery.sizeOf(context).width * .05,
+                    vertical: MediaQuery.sizeOf(context).height * .01,
                     horizontal: MediaQuery.sizeOf(context).width * .02),
                 child: const TraingleButton(),
               ),
@@ -135,7 +142,14 @@ class _SignUpState extends State<SignUp> {
                   const Text("Already have an account?"),
                   TextButton(
                     child: const Text("Sign In"),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Login(),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
