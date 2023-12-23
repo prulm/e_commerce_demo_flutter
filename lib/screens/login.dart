@@ -43,13 +43,13 @@ class _LoginState extends State<Login> {
                   child: const Text('Skip'),
                 ),
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).width * .03),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .02),
               Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Login',
                   style: TextStyle(
-                    fontSize: MediaQuery.sizeOf(context).width * .04,
+                    fontSize: MediaQuery.sizeOf(context).width * .05,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -84,7 +84,6 @@ class _LoginState extends State<Login> {
                       ),
                 textObsecured: textObsecured,
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).width * .005),
               Container(
                 alignment: Alignment.centerRight,
                 child: TextButton(
@@ -97,12 +96,13 @@ class _LoginState extends State<Login> {
                   onPressed: () {},
                 ),
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).width * .06),
               Container(
                 alignment: Alignment.centerRight,
+                padding: EdgeInsets.symmetric(
+                    vertical: MediaQuery.sizeOf(context).width * .05,
+                    horizontal: MediaQuery.sizeOf(context).width * .02),
                 child: const TraingleButton(),
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).width * .06),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -127,17 +127,17 @@ class _LoginState extends State<Login> {
                   const Expanded(child: Divider()),
                 ],
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).width * .05),
               SizedBox(
-                height: MediaQuery.sizeOf(context).width * .4,
+                height: MediaQuery.sizeOf(context).width * .23,
                 child: GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: icons.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: icons.length),
                   itemBuilder: (context, index) {
                     return Container(
                       padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.sizeOf(context).width * .06),
+                          horizontal: MediaQuery.sizeOf(context).width * .04),
                       child: CircleAvatar(
                         child: Image.network(
                           icons[index]["url"],

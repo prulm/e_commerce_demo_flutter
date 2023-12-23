@@ -19,8 +19,8 @@ class TraingleButtonClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     return Path()
       ..moveTo(size.width, -7)
-      ..lineTo(10, size.height / 2 - 8)
-      ..quadraticBezierTo(0, size.height / 2, 10, size.height / 2 + 8)
+      ..lineTo(10, size.height / 2 - 10)
+      ..quadraticBezierTo(0, size.height / 2, 10, size.height / 2 + 10)
       ..lineTo(size.width, size.height + 7);
   }
 

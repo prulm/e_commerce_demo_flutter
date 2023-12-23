@@ -11,14 +11,17 @@ class TraingleButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-            onPrimary: Colors.black,
+            foregroundColor: Colors.black,
             alignment: Alignment.center,
             backgroundColor: Colors.deepPurple,
-            padding: const EdgeInsets.all(25),
+            padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.sizeOf(context).width * .035,
+                vertical: MediaQuery.sizeOf(context).height * .035),
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10))),
+                borderRadius: BorderRadius.circular(
+                    MediaQuery.sizeOf(context).width * .03))),
         child: Transform.translate(
-          offset: Offset(6, 0),
+          offset: Offset(MediaQuery.sizeOf(context).width * .017, 0),
           child: const Icon(
             Icons.east,
             color: Colors.white,
