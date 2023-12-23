@@ -11,7 +11,7 @@ class TraingleButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-            foregroundColor: Colors.black,
+            foregroundColor: Colors.white,
             alignment: Alignment.center,
             backgroundColor: Colors.deepPurple,
             padding: EdgeInsets.symmetric(
