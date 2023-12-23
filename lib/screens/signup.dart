@@ -42,21 +42,42 @@ class _SignUpState extends State<SignUp> {
               Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Login',
+                  'Sign up',
                   style: TextStyle(
-                    fontSize: MediaQuery.sizeOf(context).width * .05,
+                    fontSize: MediaQuery.sizeOf(context).width * .06,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).width * .05),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .04),
               RoundedInput(
-                label: "Email/Phone number",
+                label: "First name",
                 inputController: emailController,
                 iconSuffix: null,
                 textObsecured: false,
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).width * .05),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .04),
+              RoundedInput(
+                label: "Last name",
+                inputController: emailController,
+                iconSuffix: null,
+                textObsecured: false,
+              ),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .04),
+              RoundedInput(
+                label: "Email",
+                inputController: emailController,
+                iconSuffix: null,
+                textObsecured: false,
+              ),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .04),
+              RoundedInput(
+                label: "Phone number",
+                inputController: emailController,
+                iconSuffix: null,
+                textObsecured: false,
+              ),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .04),
               RoundedInput(
                 label: "Password",
                 inputController: passwordController,
@@ -79,6 +100,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                 textObsecured: textObsecured,
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).width * .03),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -86,9 +108,9 @@ class _SignUpState extends State<SignUp> {
                       value: agreed,
                       onChanged: (value) {
                         agreed = value!;
-                        setState() {}
+                        setState(() {});
                       }),
-                  const Text("I Agree with the terms of"),
+                  const Text("I Agree with"),
                   TextButton(
                     child: const Text("Privacy"),
                     onPressed: () {},
