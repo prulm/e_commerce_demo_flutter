@@ -1,3 +1,4 @@
+import 'package:e_commerce_demo_flutter/models/user.dart';
 import 'package:e_commerce_demo_flutter/screens/login.dart';
 import 'package:e_commerce_demo_flutter/services/auth/auth_api_service.dart';
 import 'package:e_commerce_demo_flutter/utils/constants.dart';
@@ -21,9 +22,22 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController passwordController = TextEditingController();
   bool textObsecured = true;
   bool agreed = false;
+  late User currentUser;
   void _iconPressed() {
     textObsecured = !textObsecured;
     setState(() {});
+  }
+
+  _signup() async {
+    try {
+      User fetchedUser = await widget.authApiService
+          .login(emailController.text, passwordController.text);
+      setState(() {
+        currentUser = fetchedUser;
+      });
+    } catch (e) {
+      print('Error Logging you in: $e');
+    }
   }
 
   @override
@@ -135,7 +149,9 @@ class _SignUpState extends State<SignUp> {
                 padding: EdgeInsets.symmetric(
                     vertical: MediaQuery.sizeOf(context).height * .01,
                     horizontal: MediaQuery.sizeOf(context).width * .02),
-                child: const TraingleButton(),
+                child: TraingleButton(
+                  buttonClicked: _signup,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -147,7 +163,9 @@ class _SignUpState extends State<SignUp> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Login(authApiService: widget.authApiService,),
+                          builder: (context) => Login(
+                            authApiService: widget.authApiService,
+                          ),
                         ),
                       );
                     },

@@ -30,12 +30,6 @@ class _LoginState extends State<Login> {
     setState(() {});
   }
 
-  @override
-  void initState() {
-    _login();
-    super.initState();
-  }
-
   _login() async {
     try {
       User fetchedUser = await widget.authApiService.login(
@@ -125,7 +119,7 @@ class _LoginState extends State<Login> {
                 padding: EdgeInsets.symmetric(
                     vertical: MediaQuery.sizeOf(context).width * .05,
                     horizontal: MediaQuery.sizeOf(context).width * .02),
-                child: const TraingleButton(),
+                child: TraingleButton(buttonClicked: _login,),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

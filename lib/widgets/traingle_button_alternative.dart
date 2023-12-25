@@ -2,14 +2,15 @@ import 'package:e_commerce_demo_flutter/widgets/custombuttonshape.dart';
 import 'package:flutter/material.dart';
 
 class TraingleButton extends StatelessWidget {
-  const TraingleButton({super.key});
+  final VoidCallback buttonClicked;
+  const TraingleButton({super.key, required this.buttonClicked});
 
   @override
   Widget build(BuildContext context) {
     return ClipPath(
       clipper: TraingleButtonClipper(),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () => buttonClicked,
         style: ElevatedButton.styleFrom(
             foregroundColor: Colors.white,
             alignment: Alignment.center,

@@ -12,6 +12,6 @@ class AuthApiService {
   // }
 
   Future<User> login(String email, String password) async {
-    return loginApi('$baseUrl/login/', email, password);
+    return loginApi('$baseUrl/user/login/', email, password);
   }
 }
