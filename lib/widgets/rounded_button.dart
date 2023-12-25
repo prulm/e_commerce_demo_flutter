@@ -29,7 +29,7 @@ class RoundedButton extends StatelessWidget {
           text,
           style: TextStyle(
             color: Colors.white,
-            fontSize: MediaQuery.sizeOf(context).aspectRatio * 28,
+            fontSize: MediaQuery.sizeOf(context).height * .03,
           ),
         ),
       ),
