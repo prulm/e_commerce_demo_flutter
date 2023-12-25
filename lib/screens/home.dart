@@ -1,11 +1,13 @@
 import 'package:e_commerce_demo_flutter/screens/login.dart';
 import 'package:e_commerce_demo_flutter/screens/signup.dart';
+import 'package:e_commerce_demo_flutter/services/auth/auth_api_service.dart';
 import 'package:e_commerce_demo_flutter/utils/constants.dart';
 import 'package:e_commerce_demo_flutter/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  final AuthApiService apiService;
+  const Home({super.key, required this.apiService});
 
   @override
   State<Home> createState() => _HomeState();
@@ -17,14 +19,14 @@ class _HomeState extends State<Home> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const SignUp(),
+          builder: (context) => SignUp(authApiService: widget.apiService,),
         ),
       );
     } else if (action == 'Login') {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const Login(),
+          builder: (context) => Login(authApiService: widget.apiService),
         ),
       );
     }

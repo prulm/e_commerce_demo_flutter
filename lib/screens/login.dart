@@ -1,11 +1,14 @@
+import 'package:e_commerce_demo_flutter/models/user.dart';
 import 'package:e_commerce_demo_flutter/screens/signup.dart';
+import 'package:e_commerce_demo_flutter/services/auth/auth_api_service.dart';
 import 'package:e_commerce_demo_flutter/utils/constants.dart';
 import 'package:e_commerce_demo_flutter/widgets/rounded_input.dart';
 import 'package:e_commerce_demo_flutter/widgets/traingle_button_alternative.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
-  const Login({super.key});
+  final AuthApiService authApiService;
+  const Login({super.key, required this.authApiService});
 
   @override
   State<Login> createState() => _LoginState();
@@ -14,6 +17,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  late User currentUser;
   bool textObsecured = true;
   List<Map> icons = [
     {"name": "facebook", "url": kFbLink},
@@ -24,6 +28,24 @@ class _LoginState extends State<Login> {
   void iconPressed() {
     textObsecured = !textObsecured;
     setState(() {});
+  }
+
+  @override
+  void initState() {
+    _login();
+    super.initState();
+  }
+
+  _login() async {
+    try {
+      User fetchedUser = await widget.authApiService.login(
+          emailController.text, passwordController.text);
+      setState(() {
+        currentUser = fetchedUser;
+      });
+    } catch (e) {
+      print('Error Logging you in: $e');
+    }
   }
 
   @override
@@ -115,7 +137,7 @@ class _LoginState extends State<Login> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SignUp(),
+                          builder: (context) => SignUp(authApiService: widget.authApiService),
                         ),
                       );
                     },

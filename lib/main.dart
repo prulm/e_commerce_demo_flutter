@@ -1,12 +1,15 @@
 import 'package:e_commerce_demo_flutter/screens/home.dart';
+import 'package:e_commerce_demo_flutter/services/auth/auth_api_service.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const ECommerce());
+  runApp(ECommerce());
 }
 
 class ECommerce extends StatelessWidget {
-  const ECommerce({super.key});
+  ECommerce({super.key});
+
+  final AuthApiService authApiService = AuthApiService();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class ECommerce extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Home(),
+      home: Home(apiService: authApiService),
     );
   }
 }

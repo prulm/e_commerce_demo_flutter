@@ -1,12 +1,13 @@
 import 'package:e_commerce_demo_flutter/screens/login.dart';
+import 'package:e_commerce_demo_flutter/services/auth/auth_api_service.dart';
 import 'package:e_commerce_demo_flutter/utils/constants.dart';
 import 'package:e_commerce_demo_flutter/widgets/rounded_input.dart';
 import 'package:e_commerce_demo_flutter/widgets/traingle_button_alternative.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+  final AuthApiService authApiService;
+  const SignUp({super.key, required this.authApiService});
 
   @override
   State<SignUp> createState() => _SignUpState();
@@ -146,7 +147,7 @@ class _SignUpState extends State<SignUp> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Login(),
+                          builder: (context) => Login(authApiService: widget.authApiService,),
                         ),
                       );
                     },
