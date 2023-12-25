@@ -1,8 +1,7 @@
 import 'dart:convert';
-import 'package:e_commerce_demo_flutter/models/user.dart';
 import 'package:http/http.dart' as http;
 
-Future loginApi(String url, email, password) async {
+Future signupApi(String url, String firstName, String lastName, String phone, String email, String password) async {
   final response = await http.post(
     Uri.parse(url),
     body: {"email": email, "password": password},

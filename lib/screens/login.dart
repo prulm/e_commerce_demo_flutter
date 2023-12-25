@@ -30,15 +30,13 @@ class _LoginState extends State<Login> {
     setState(() {});
   }
 
-  _login() async {
+  void _login() async {
     try {
-      User fetchedUser = await widget.authApiService.login(
-          emailController.text, passwordController.text);
-      setState(() {
-        currentUser = fetchedUser;
-      });
+      var response = await widget.authApiService
+          .login(emailController.text, passwordController.text);
+      debugPrint(response);
     } catch (e) {
-      print('Error Logging you in: $e');
+      debugPrint('Error Logging you in. $e');
     }
   }
 
@@ -119,7 +117,9 @@ class _LoginState extends State<Login> {
                 padding: EdgeInsets.symmetric(
                     vertical: MediaQuery.sizeOf(context).width * .05,
                     horizontal: MediaQuery.sizeOf(context).width * .02),
-                child: TraingleButton(buttonClicked: _login,),
+                child: TraingleButton(
+                  buttonClicked: _login,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -131,7 +131,8 @@ class _LoginState extends State<Login> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SignUp(authApiService: widget.authApiService),
+                          builder: (context) =>
+                              SignUp(authApiService: widget.authApiService),
                         ),
                       );
                     },
@@ -152,27 +153,27 @@ class _LoginState extends State<Login> {
                   const Expanded(child: Divider()),
                 ],
               ),
-              SizedBox(
-                height: MediaQuery.sizeOf(context).width * .23,
-                child: GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: icons.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: icons.length),
-                  itemBuilder: (context, index) {
-                    return Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.sizeOf(context).width * .04),
-                      child: CircleAvatar(
-                        child: Image.network(
-                          icons[index]["url"],
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
+              // SizedBox(
+              //   height: MediaQuery.sizeOf(context).width * .23,
+              //   child: GridView.builder(
+              //     physics: const NeverScrollableScrollPhysics(),
+              //     itemCount: icons.length,
+              //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //         crossAxisCount: icons.length),
+              //     itemBuilder: (context, index) {
+              //       return Container(
+              //         padding: EdgeInsets.symmetric(
+              //             horizontal: MediaQuery.sizeOf(context).width * .04),
+              //         child: CircleAvatar(
+              //           child: Image.network(
+              //             icons[index]["url"],
+              //             fit: BoxFit.contain,
+              //           ),
+              //         ),
+              //       );
+              //     },
+              //   ),
+              // ),
             ],
           ),
         ),

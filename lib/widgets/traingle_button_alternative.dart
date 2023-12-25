@@ -10,7 +10,7 @@ class TraingleButton extends StatelessWidget {
     return ClipPath(
       clipper: TraingleButtonClipper(),
       child: ElevatedButton(
-        onPressed: () => buttonClicked,
+        onPressed: buttonClicked,
         style: ElevatedButton.styleFrom(
             foregroundColor: Colors.white,
             alignment: Alignment.center,
