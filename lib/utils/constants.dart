@@ -16,4 +16,4 @@ var kInstaLink =
 var kXLink =
     "https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_twitter-512.png";
 
-const String apiUrl = "http://192.168.0.0/flutter_test";
+const String apiUrl = "http://192.168.43.160/flutter_test";
