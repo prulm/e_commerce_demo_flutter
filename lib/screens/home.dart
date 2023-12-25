@@ -41,6 +41,7 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             Container(
+              height: MediaQuery.sizeOf(context).height * .05,
               alignment: Alignment.centerRight,
               child: OutlinedButton(
                 onPressed: () {},
