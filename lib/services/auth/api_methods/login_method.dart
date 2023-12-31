@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:e_commerce_demo_flutter/models/user.dart';
 import 'package:http/http.dart' as http;
 
 Future loginApi(String url, email, password) async {

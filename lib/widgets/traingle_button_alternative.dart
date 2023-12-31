@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 
 class TraingleButton extends StatelessWidget {
   final VoidCallback buttonClicked;
-  const TraingleButton({super.key, required this.buttonClicked});
+  final bool buttonDisabled;
+  const TraingleButton({super.key, required this.buttonClicked, required this.buttonDisabled});
 
   @override
   Widget build(BuildContext context) {
     return ClipPath(
       clipper: TraingleButtonClipper(),
       child: ElevatedButton(
-        onPressed: buttonClicked,
+        onPressed: buttonDisabled ? null : buttonClicked,
         style: ElevatedButton.styleFrom(
             foregroundColor: Colors.white,
             alignment: Alignment.center,

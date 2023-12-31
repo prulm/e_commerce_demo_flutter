@@ -4,6 +4,7 @@ class Product {
   final int id;
   final String name;
   final User seller;
+  final double price;
   final String color;
   final String brand;
   final List<String> pictures;
@@ -11,6 +12,7 @@ class Product {
       {required this.id,
       required this.name,
       required this.seller,
+      required this.price,
       required this.color,
       required this.brand,
       required this.pictures});
@@ -20,6 +22,7 @@ class Product {
       'id': id,
       'name': name,
       'seller': seller,
+      'price': price,
       'color': color,
       'brand': brand,
       'pictures': pictures,
@@ -31,6 +34,7 @@ class Product {
       id: map['id'],
       name: map['name'],
       seller: map['seller'],
+      price: map['price'],
       color: map['color'],
       brand: map['brand'],
       pictures: map['pictures'],

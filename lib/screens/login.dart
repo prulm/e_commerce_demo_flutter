@@ -36,7 +36,7 @@ class _LoginState extends State<Login> {
           .login(emailController.text, passwordController.text);
       debugPrint(response);
     } catch (e) {
-      debugPrint('Error Logging you in. $e');
+      debugPrint('Error Logging you in.\n$e');
     }
   }
 
@@ -119,6 +119,7 @@ class _LoginState extends State<Login> {
                     horizontal: MediaQuery.sizeOf(context).width * .02),
                 child: TraingleButton(
                   buttonClicked: _login,
+                  buttonDisabled: false,
                 ),
               ),
               Row(

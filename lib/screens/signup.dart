@@ -1,10 +1,12 @@
 import 'package:e_commerce_demo_flutter/models/user.dart';
+import 'package:e_commerce_demo_flutter/screens/dashboard.dart';
 import 'package:e_commerce_demo_flutter/screens/login.dart';
 import 'package:e_commerce_demo_flutter/services/auth/auth_api_service.dart';
 import 'package:e_commerce_demo_flutter/utils/constants.dart';
 import 'package:e_commerce_demo_flutter/widgets/rounded_input.dart';
 import 'package:e_commerce_demo_flutter/widgets/traingle_button_alternative.dart';
 import 'package:flutter/material.dart';
+// import 'package:fluttertoast/fluttertoast.dart';
 
 class SignUp extends StatefulWidget {
   final AuthApiService authApiService;
@@ -21,6 +23,7 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool textObsecured = true;
+  bool buttonDisabled = true;
   bool agreed = false;
   late User currentUser;
   void _iconPressed() {
@@ -28,15 +31,31 @@ class _SignUpState extends State<SignUp> {
     setState(() {});
   }
 
-  _signup() async {
+  void _signup() async {
     try {
-      User fetchedUser = await widget.authApiService
-          .login(emailController.text, passwordController.text);
-      setState(() {
-        currentUser = fetchedUser;
-      });
+      await widget.authApiService.signup(
+          fNameController.text,
+          lNameController.text,
+          phoneController.text,
+          emailController.text,
+          passwordController.text);
+      // Fluttertoast.showToast(
+      //     msg: "Sign up successful",
+      //     toastLength: Toast.LENGTH_SHORT,
+      //     textColor: Colors.white,
+      //     fontSize: 16,
+      //     backgroundColor: Colors.green[250]);
+      _navigateToLogin();
     } catch (e) {
-      print('Error Logging you in: $e');
+      if (e == 'Exception: 403') {
+        // Fluttertoast.showToast(
+        //     msg: "Sign up failed",
+        //     toastLength: Toast.LENGTH_SHORT,
+        //     textColor: Colors.white,
+        //     fontSize: 16,
+        //     backgroundColor: Colors.red[500]);
+        debugPrint(e.toString());
+      }
     }
   }
 
@@ -56,7 +75,14 @@ class _SignUpState extends State<SignUp> {
                 height: MediaQuery.sizeOf(context).height * .05,
                 alignment: Alignment.centerRight,
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Dashboard(),
+                      ),
+                    );
+                  },
                   child: const Text('Skip'),
                 ),
               ),
@@ -151,6 +177,7 @@ class _SignUpState extends State<SignUp> {
                     horizontal: MediaQuery.sizeOf(context).width * .02),
                 child: TraingleButton(
                   buttonClicked: _signup,
+                  buttonDisabled: buttonDisabled,
                 ),
               ),
               Row(
@@ -174,6 +201,16 @@ class _SignUpState extends State<SignUp> {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+  void _navigateToLogin() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Login(
+          authApiService: widget.authApiService,
         ),
       ),
     );
