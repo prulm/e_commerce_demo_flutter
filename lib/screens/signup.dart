@@ -1,5 +1,5 @@
 import 'package:e_commerce_demo_flutter/models/user.dart';
-import 'package:e_commerce_demo_flutter/screens/dashboard.dart';
+import 'package:e_commerce_demo_flutter/screens/bottom_navigation.dart';
 import 'package:e_commerce_demo_flutter/screens/login.dart';
 import 'package:e_commerce_demo_flutter/services/auth/auth_api_service.dart';
 import 'package:e_commerce_demo_flutter/utils/constants.dart';
@@ -79,7 +79,7 @@ class _SignUpState extends State<SignUp> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Dashboard(),
+                        builder: (context) => const BottomNavigation(),
                       ),
                     );
                   },

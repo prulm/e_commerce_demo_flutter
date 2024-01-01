@@ -21,23 +21,6 @@ class _AddProductState extends State<AddProduct> {
   final TextEditingController productPriceController = TextEditingController();
   final TextEditingController productBrandController = TextEditingController();
   final TextEditingController productColorController = TextEditingController();
-  final List<Map> tiles = [
-    {
-      "title": const Text("Settings"),
-      "subtitle": const Text("Configure your app"),
-      "icon": const Icon(Icons.settings),
-      "trailing": null
-    },
-    {
-      "title": const Text("Dark mode"),
-      "subtitle": const Text("Toggle dark mode"),
-      "icon": const Icon(Icons.dark_mode),
-      "trailing": Switch(
-        onChanged: (value) {},
-        value: false,
-      )
-    },
-  ];
 
   Future<void> galleryImage(BuildContext context) async {
     image = await picker.pickImage(source: ImageSource.gallery);
@@ -119,42 +102,12 @@ class _AddProductState extends State<AddProduct> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kGrey,
-      appBar: AppBar(
-        title: const Text("Upload a product"),
-        elevation: 0.0,
-      ),
-      drawer: Drawer(
-        child: ListView.builder(
-          itemCount: tiles.length + 1,
-          itemBuilder: (BuildContext context, int index) {
-            if (index == 0) {
-              return SizedBox(
-                height: MediaQuery.sizeOf(context).height * .18,
-                child: const DrawerHeader(
-                  child: ListTile(
-                    leading: CircleAvatar(),
-                    title: Text("Yared Fekade"),
-                    subtitle: Text("Jaredyared83@gmail.com"),
-                  ),
-                ),
-              );
-            } else {
-              return ListTile(
-                title: tiles[index - 1]["title"],
-                subtitle: tiles[index - 1]["subtitle"],
-                leading: tiles[index - 1]["icon"],
-                trailing: tiles[index - 1]["trailing"],
-              );
-            }
-          },
-        ),
-      ),
       body: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
         child: Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).height * .03,
-              horizontal: MediaQuery.sizeOf(context).width * .03),
+              horizontal: MediaQuery.sizeOf(context).width * .05),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -205,22 +158,6 @@ class _AddProductState extends State<AddProduct> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            label: "Add",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-        ],
       ),
     );
   }
