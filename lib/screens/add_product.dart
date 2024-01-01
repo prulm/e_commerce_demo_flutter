@@ -154,7 +154,7 @@ class _AddProductState extends State<AddProduct> {
         child: Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).height * .03,
-              horizontal: MediaQuery.sizeOf(context).height * .03),
+              horizontal: MediaQuery.sizeOf(context).width * .03),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -193,7 +193,7 @@ class _AddProductState extends State<AddProduct> {
                   RoundedButton(
                     text: "Upload",
                     heightFactor: .053,
-                    widthFactor: .5,
+                    widthFactor: .4,
                     buttonPressed: () => _uploadProduct(
                         productNameController.text,
                         productBrandController.text,
