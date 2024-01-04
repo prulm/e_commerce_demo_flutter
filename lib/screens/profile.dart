@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:e_commerce_demo_flutter/utils/constants.dart';
 import 'package:e_commerce_demo_flutter/widgets/rounded_button.dart';
+import 'package:e_commerce_demo_flutter/widgets/rounded_input.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -13,6 +14,10 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController fNameController = TextEditingController();
+  TextEditingController lNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   ImagePicker picker = ImagePicker();
   XFile? image;
   bool isVisible = false;
@@ -110,102 +115,43 @@ class _ProfileState extends State<Profile> {
                   ),
                 ],
               ),
-              Container(
-                alignment: Alignment.centerLeft,
-                margin: EdgeInsets.only(left: 25, top: 5),
-                child: Text(
-                  "Name",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
               SizedBox(
-                height: 5,
+                height: 15,
               ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 25.0),
-                height: 35,
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                      width: 1,
-                      color: Colors.grey,
-                    )),
-                    hintText: 'Your name here...',
-                    contentPadding: EdgeInsets.only(left: 10),
+              RoundedInput(
+                iconSuffix: null,
+                label: "First name",
+                textObsecured: false,
+                inputController: fNameController,
+              ),
+              RoundedInput(
+                iconSuffix: null,
+                label: "First name",
+                textObsecured: false,
+                inputController: fNameController,
+              ),
+              RoundedInput(
+                iconSuffix: null,
+                label: "First name",
+                textObsecured: false,
+                inputController: fNameController,
+              ),
+              RoundedInput(
+                iconSuffix: Container(
+                  padding: EdgeInsets.only(
+                    right: MediaQuery.sizeOf(context).width * .03,
+                  ),
+                  child: IconButton(
+                    icon: Icon(
+                        isVisible ? Icons.visibility_off : Icons.visibility),
+                    onPressed: () {
+                      setState(() => isVisible = !isVisible);
+                    },
                   ),
                 ),
-              ),
-              SizedBox(height: 5),
-              Container(
-                alignment: Alignment.centerLeft,
-                margin: EdgeInsets.only(left: 25, top: 5),
-                child: Text(
-                  "Email",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 25.0),
-                height: 35,
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                      width: 1,
-                      color: Colors.grey,
-                    )),
-                    hintText: 'example@gmail.com',
-                    contentPadding: EdgeInsets.only(left: 10),
-                  ),
-                ),
-              ),
-              SizedBox(height: 5),
-              Container(
-                alignment: Alignment.centerLeft,
-                margin: EdgeInsets.only(left: 25, top: 5),
-                child: Text(
-                  "Password",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 25.0),
-                height: 35,
-                child: TextField(
-                  obscureText: !isVisible,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                      width: 1,
-                      color: Colors.grey,
-                    )),
-                    hintText: 'Enter a password',
-                    contentPadding: EdgeInsets.only(left: 10),
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                          isVisible ? Icons.visibility_off : Icons.visibility),
-                      onPressed: () {
-                        setState(() => isVisible = !isVisible);
-                      },
-                    ),
-                  ),
-                ),
+                label: "Password",
+                textObsecured: !isVisible,
+                inputController: passwordController,
               ),
               SizedBox(
                 height: 15,
@@ -213,7 +159,7 @@ class _ProfileState extends State<Profile> {
               RoundedButton(
                 text: "Save Changes",
                 heightFactor: .053,
-                widthFactor: .4,
+                widthFactor: .3,
                 buttonPressed: () {},
               ),
             ],

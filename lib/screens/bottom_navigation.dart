@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:e_commerce_demo_flutter/screens/add_product.dart';
 import 'package:e_commerce_demo_flutter/screens/dashboard.dart';
 import 'package:e_commerce_demo_flutter/screens/profile.dart';
@@ -38,7 +36,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   ];
 
   final List<Widget> _titles = [
-    const Text("Ma-rekt"),
+    const Text("Ma-rket"),
     const Text("Upload product"),
     const Text("Profile"),
   ];
