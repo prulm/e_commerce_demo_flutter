@@ -7,10 +7,6 @@ class AuthApiService {
 
   AuthApiService() : baseUrl = apiUrl;
 
-  // Future<List<Note>> fetchNotes() async {
-  //   return retrieveNotes('$baseUrl/note/load/');
-  // }
-
   Future login(String email, String password) async {
     return loginApi('$baseUrl/user/login.php', email, password);
   }

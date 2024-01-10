@@ -154,27 +154,27 @@ class _LoginState extends State<Login> {
                   const Expanded(child: Divider()),
                 ],
               ),
-              // SizedBox(
-              //   height: MediaQuery.sizeOf(context).width * .23,
-              //   child: GridView.builder(
-              //     physics: const NeverScrollableScrollPhysics(),
-              //     itemCount: icons.length,
-              //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              //         crossAxisCount: icons.length),
-              //     itemBuilder: (context, index) {
-              //       return Container(
-              //         padding: EdgeInsets.symmetric(
-              //             horizontal: MediaQuery.sizeOf(context).width * .04),
-              //         child: CircleAvatar(
-              //           child: Image.network(
-              //             icons[index]["url"],
-              //             fit: BoxFit.contain,
-              //           ),
-              //         ),
-              //       );
-              //     },
-              //   ),
-              // ),
+              SizedBox(
+                height: MediaQuery.sizeOf(context).width * .23,
+                child: GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: icons.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: icons.length),
+                  itemBuilder: (context, index) {
+                    return Container(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.sizeOf(context).width * .04),
+                      child: CircleAvatar(
+                        child: Image.network(
+                          icons[index]["url"],
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),

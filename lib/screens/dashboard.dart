@@ -24,8 +24,8 @@ class _DashboardState extends State<Dashboard> {
         phone: "0984872232",
       ),
       price: 1700000.00,
-      color: "red",
-      brand: "Toyota",
+      description: "A red toyota yaris. serious inquiries only.",
+      dateUploaded: "10/12/23",
       pictures: ["pictures"],
     ),
   ];
@@ -65,7 +65,7 @@ class _DashboardState extends State<Dashboard> {
                       surfaceTintColor: Colors.white,
                       child: ListTile(
                         title: Text(products[index].name),
-                        subtitle: Text(products[index].brand),
+                        subtitle: Text(products[index].dateUploaded),
                       ),
                     );
                   },

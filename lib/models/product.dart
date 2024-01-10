@@ -5,16 +5,16 @@ class Product {
   final String name;
   final User seller;
   final double price;
-  final String color;
-  final String brand;
+  final String description;
+  final String dateUploaded;
   final List<String> pictures;
   Product(
       {required this.id,
       required this.name,
       required this.seller,
       required this.price,
-      required this.color,
-      required this.brand,
+      required this.description,
+      required this.dateUploaded,
       required this.pictures});
 
   Map<String, dynamic> toMap() {
@@ -23,8 +23,8 @@ class Product {
       'name': name,
       'seller': seller,
       'price': price,
-      'color': color,
-      'brand': brand,
+      'description': description,
+      'dateUploaded': dateUploaded,
       'pictures': pictures,
     };
   }
@@ -35,8 +35,8 @@ class Product {
       name: map['name'],
       seller: map['seller'],
       price: map['price'],
-      color: map['color'],
-      brand: map['brand'],
+      description: map['description'],
+      dateUploaded: map['dateUploaded'],
       pictures: map['pictures'],
     );
   }
