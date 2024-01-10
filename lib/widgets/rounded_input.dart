@@ -17,7 +17,7 @@ class RoundedInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.sizeOf(context).width * .9,
-      height: MediaQuery.sizeOf(context).width * .1,
+      height: MediaQuery.sizeOf(context).height * .08,
       child: TextField(
         obscureText: textObsecured,
         controller: inputController,
