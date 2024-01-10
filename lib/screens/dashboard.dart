@@ -1,6 +1,7 @@
 import 'package:e_commerce_demo_flutter/models/product.dart';
 import 'package:e_commerce_demo_flutter/models/user.dart';
 import 'package:e_commerce_demo_flutter/utils/constants.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatefulWidget {
@@ -12,6 +13,134 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   final List<Product> products = [
+    Product(
+      id: 1,
+      name: "Toyota Yaris",
+      seller: User(
+        id: 1,
+        firstName: "Yared",
+        lastName: "Fekade",
+        profilePicture: "profilePicture",
+        email: "jaredyared83@gmail.com",
+        phone: "0984872232",
+      ),
+      price: 1700000.00,
+      description: "A red toyota yaris. serious inquiries only.",
+      dateUploaded: "10/12/23",
+      pictures: ["pictures"],
+    ),
+    Product(
+      id: 1,
+      name: "Toyota Yaris",
+      seller: User(
+        id: 1,
+        firstName: "Yared",
+        lastName: "Fekade",
+        profilePicture: "profilePicture",
+        email: "jaredyared83@gmail.com",
+        phone: "0984872232",
+      ),
+      price: 1700000.00,
+      description: "A red toyota yaris. serious inquiries only.",
+      dateUploaded: "10/12/23",
+      pictures: ["pictures"],
+    ),
+    Product(
+      id: 1,
+      name: "Toyota Yaris",
+      seller: User(
+        id: 1,
+        firstName: "Yared",
+        lastName: "Fekade",
+        profilePicture: "profilePicture",
+        email: "jaredyared83@gmail.com",
+        phone: "0984872232",
+      ),
+      price: 1700000.00,
+      description: "A red toyota yaris. serious inquiries only.",
+      dateUploaded: "10/12/23",
+      pictures: ["pictures"],
+    ),
+    Product(
+      id: 1,
+      name: "Toyota Yaris",
+      seller: User(
+        id: 1,
+        firstName: "Yared",
+        lastName: "Fekade",
+        profilePicture: "profilePicture",
+        email: "jaredyared83@gmail.com",
+        phone: "0984872232",
+      ),
+      price: 1700000.00,
+      description: "A red toyota yaris. serious inquiries only.",
+      dateUploaded: "10/12/23",
+      pictures: ["pictures"],
+    ),
+    Product(
+      id: 1,
+      name: "Toyota Yaris",
+      seller: User(
+        id: 1,
+        firstName: "Yared",
+        lastName: "Fekade",
+        profilePicture: "profilePicture",
+        email: "jaredyared83@gmail.com",
+        phone: "0984872232",
+      ),
+      price: 1700000.00,
+      description: "A red toyota yaris. serious inquiries only.",
+      dateUploaded: "10/12/23",
+      pictures: ["pictures"],
+    ),
+    Product(
+      id: 1,
+      name: "Toyota Yaris",
+      seller: User(
+        id: 1,
+        firstName: "Yared",
+        lastName: "Fekade",
+        profilePicture: "profilePicture",
+        email: "jaredyared83@gmail.com",
+        phone: "0984872232",
+      ),
+      price: 1700000.00,
+      description: "A red toyota yaris. serious inquiries only.",
+      dateUploaded: "10/12/23",
+      pictures: ["pictures"],
+    ),
+    Product(
+      id: 1,
+      name: "Toyota Yaris",
+      seller: User(
+        id: 1,
+        firstName: "Yared",
+        lastName: "Fekade",
+        profilePicture: "profilePicture",
+        email: "jaredyared83@gmail.com",
+        phone: "0984872232",
+      ),
+      price: 1700000.00,
+      description: "A red toyota yaris. serious inquiries only.",
+      dateUploaded: "10/12/23",
+      pictures: ["pictures"],
+    ),
+    Product(
+      id: 1,
+      name: "Toyota Yaris",
+      seller: User(
+        id: 1,
+        firstName: "Yared",
+        lastName: "Fekade",
+        profilePicture: "profilePicture",
+        email: "jaredyared83@gmail.com",
+        phone: "0984872232",
+      ),
+      price: 1700000.00,
+      description: "A red toyota yaris. serious inquiries only.",
+      dateUploaded: "10/12/23",
+      pictures: ["pictures"],
+    ),
     Product(
       id: 1,
       name: "Toyota Yaris",
@@ -58,14 +187,23 @@ class _DashboardState extends State<Dashboard> {
               ),
               Container(
                 height: MediaQuery.sizeOf(context).height * .7,
-                child: ListView.builder(
+                child: GridView.builder(
                   itemCount: products.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                   itemBuilder: (BuildContext context, int index) {
                     return Card(
                       surfaceTintColor: Colors.white,
-                      child: ListTile(
-                        title: Text(products[index].name),
-                        subtitle: Text(products[index].dateUploaded),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.sizeOf(context).height * .2,
+                            child: Image.asset('assets/images/auth_design.png'),
+                            ),
+                          ListTile(
+                            title: Text(products[index].name),
+                            subtitle: Text(products[index].dateUploaded),
+                          ),
+                        ],
                       ),
                     );
                   },

@@ -59,7 +59,7 @@ class _LoginState extends State<Login> {
                   child: const Text('Skip'),
                 ),
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).width * .02),
+              SizedBox(height: MediaQuery.sizeOf(context).height * .02),
               Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -70,14 +70,14 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).width * .04),
+              SizedBox(height: MediaQuery.sizeOf(context).height * .04),
               RoundedInput(
                 label: "Email/Phone number",
                 inputController: emailController,
                 iconSuffix: null,
                 textObsecured: false,
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).width * .05),
+              SizedBox(height: MediaQuery.sizeOf(context).height * .05),
               RoundedInput(
                 label: "Password",
                 inputController: passwordController,
@@ -164,7 +164,7 @@ class _LoginState extends State<Login> {
                   itemBuilder: (context, index) {
                     return Container(
                       padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.sizeOf(context).width * .04),
+                          horizontal: MediaQuery.sizeOf(context).width * .05),
                       child: CircleAvatar(
                         child: Image.network(
                           icons[index]["url"],
