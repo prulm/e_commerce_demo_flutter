@@ -84,7 +84,7 @@ class _ProfileState extends State<Profile> {
                 alignment: Alignment.center,
                 children: [
                   CircleAvatar(
-                    radius: MediaQuery.of(context).size.width * .2,
+                    radius: MediaQuery.of(context).size.width * .15,
                     backgroundImage:
                         (image != null) ? FileImage(File(image!.path)) : null,
                     child: (image == null)
@@ -124,18 +124,21 @@ class _ProfileState extends State<Profile> {
                 textObsecured: false,
                 inputController: fNameController,
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).height * .02),
               RoundedInput(
                 iconSuffix: null,
-                label: "First name",
+                label: "Last name",
                 textObsecured: false,
-                inputController: fNameController,
+                inputController: lNameController,
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).height * .02),
               RoundedInput(
                 iconSuffix: null,
-                label: "First name",
+                label: "Email",
                 textObsecured: false,
-                inputController: fNameController,
+                inputController: emailController,
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).height * .02),
               RoundedInput(
                 iconSuffix: Container(
                   padding: EdgeInsets.only(

@@ -117,24 +117,21 @@ class _AddProductState extends State<AddProduct> {
                 textObsecured: false,
                 inputController: productNameController,
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).height * .03),
               RoundedInput(
                 iconSuffix: null,
-                label: "Product brand",
+                label: "Product description",
                 textObsecured: false,
                 inputController: productBrandController,
               ),
-              RoundedInput(
-                iconSuffix: null,
-                label: "Color",
-                textObsecured: false,
-                inputController: productColorController,
-              ),
+              SizedBox(height: MediaQuery.sizeOf(context).height * .03),
               RoundedInput(
                 iconSuffix: null,
                 label: "Price",
                 textObsecured: false,
                 inputController: productPriceController,
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).height * .03),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

@@ -1,7 +1,6 @@
 import 'package:e_commerce_demo_flutter/models/product.dart';
 import 'package:e_commerce_demo_flutter/models/user.dart';
 import 'package:e_commerce_demo_flutter/utils/constants.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatefulWidget {
