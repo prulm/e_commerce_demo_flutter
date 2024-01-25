@@ -142,8 +142,8 @@ class _AddProductState extends State<AddProduct> {
                   ),
                   RoundedButton(
                     text: "Upload",
-                    heightFactor: .053,
-                    widthFactor: .4,
+                    heightFactor: MediaQuery.sizeOf(context).height * .00011,
+                    widthFactor: MediaQuery.sizeOf(context).width * .0009,
                     buttonPressed: () => _uploadProduct(
                         productNameController.text,
                         productBrandController.text,

@@ -45,6 +45,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       backgroundColor: kGrey,
       body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
         child: Padding(
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.sizeOf(context).width * .1,

@@ -65,6 +65,7 @@ class _SignUpState extends State<SignUp> {
       backgroundColor: kGrey,
       resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
         child: Padding(
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.sizeOf(context).width * .1,

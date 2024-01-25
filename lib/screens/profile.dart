@@ -71,7 +71,7 @@ class _ProfileState extends State<Profile> {
       backgroundColor: kGrey,
       body: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.sizeOf(context).width * .1,
+          horizontal: MediaQuery.sizeOf(context).width * .08,
           vertical: MediaQuery.sizeOf(context).height * .02,
         ),
         child: Center(
@@ -84,7 +84,7 @@ class _ProfileState extends State<Profile> {
                 alignment: Alignment.center,
                 children: [
                   CircleAvatar(
-                    radius: MediaQuery.of(context).size.width * .15,
+                    radius: MediaQuery.of(context).size.width * .2,
                     backgroundImage:
                         (image != null) ? FileImage(File(image!.path)) : null,
                     child: (image == null)
@@ -93,8 +93,8 @@ class _ProfileState extends State<Profile> {
                         : null,
                   ),
                   Positioned(
-                    bottom: MediaQuery.of(context).size.height * .007,
-                    right: MediaQuery.of(context).size.width * .25,
+                    bottom: 0,
+                    right: MediaQuery.of(context).size.width * .23,
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
@@ -161,7 +161,7 @@ class _ProfileState extends State<Profile> {
               ),
               RoundedButton(
                 text: "Save Changes",
-                heightFactor: .053,
+                heightFactor: .06,
                 widthFactor: .3,
                 buttonPressed: () {},
               ),
